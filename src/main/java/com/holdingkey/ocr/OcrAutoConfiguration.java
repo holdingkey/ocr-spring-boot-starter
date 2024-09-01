@@ -2,6 +2,7 @@ package com.holdingkey.ocr;
 
 import com.holdingkey.ocr.basic.IPlatform;
 import com.holdingkey.ocr.platform.aip.AipPlatform;
+import com.holdingkey.ocr.platform.tesseract.TesseractPlatform;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,16 @@ public class OcrAutoConfiguration {
             AipPlatform platform = new AipPlatform();
             platform.setPlatform(aipConfig.getPlatform());
             platform.setConfig(aipConfig);
+            return platform;
+        }).collect(Collectors.toList());
+    }
+
+    @Bean
+    public List<TesseractPlatform> tesseractPlatform() {
+        return this.properties.getTesseract().stream().map(tesseractConfig -> {
+            TesseractPlatform platform = new TesseractPlatform();
+            platform.setPlatform(tesseractConfig.getPlatform());
+            platform.setConfig(tesseractConfig);
             return platform;
         }).collect(Collectors.toList());
     }

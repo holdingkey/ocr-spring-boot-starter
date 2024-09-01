@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <hutool-all.version>5.8.22</hutool-all.version>
+        <hutool-all.version>5.8.25</hutool-all.version>
         <lombok.version>1.18.24</lombok.version>
         <spring-boot.version>2.7.15</spring-boot.version>
         <fastjson.version>1.2.83</fastjson.version>
@@ -56,6 +56,13 @@
             <groupId>com.baidu.aip</groupId>
             <artifactId>java-sdk</artifactId>
             <version>4.16.18</version>
+        </dependency>
+
+        <!-- tess4j -->
+        <dependency>
+            <groupId>net.sourceforge.tess4j</groupId>
+            <artifactId>tess4j</artifactId>
+            <version>4.5.5</version>
         </dependency>
     </dependencies>
 

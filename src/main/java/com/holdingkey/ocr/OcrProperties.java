@@ -14,6 +14,8 @@ public class OcrProperties {
 
     private List<AipConfig> aip;
 
+    private List<TesseractConfig> tesseract;
+
     @Data
     @Accessors(chain = true)
     public static class AipConfig {
@@ -29,6 +31,18 @@ public class OcrProperties {
         private Integer connectTimeout = 2000;
 
         private Integer socketTimeout = 60000;
+
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class TesseractConfig {
+
+        private String platform;
+
+        private String language;
+
+        private String dataPath;
 
     }
 

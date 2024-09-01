@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.HashMap;
 
 public class AipPlatform implements IPlatform {
@@ -35,6 +36,12 @@ public class AipPlatform implements IPlatform {
         return this.client;
     }
 
+    @Override
+    public OcrResp basicAccurateGeneral(File file) {
+        return null;
+    }
+
+    @Override
     public OcrResp basicAccurateGeneral(byte[] img) {
         JSONObject resultJson = this.getClient().basicAccurateGeneral(img, new HashMap<>());
         OcrResp ocrResp = JSONUtil.toBean(resultJson.toString(), OcrResp.class);
@@ -42,6 +49,7 @@ public class AipPlatform implements IPlatform {
         return ocrResp;
     }
 
+    @Override
     public OcrResp basicAccurateGeneral(String imgPath) {
         JSONObject resultJson = this.getClient().basicAccurateGeneral(imgPath, new HashMap<>());
         OcrResp ocrResp = JSONUtil.toBean(resultJson.toString(), OcrResp.class);
