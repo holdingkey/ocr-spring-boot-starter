@@ -4,7 +4,7 @@ import cn.hutool.json.JSONUtil;
 import com.baidu.aip.ocr.AipOcr;
 import com.holdingkey.ocr.OcrProperties;
 import com.holdingkey.ocr.basic.IPlatform;
-import com.holdingkey.ocr.dto.OcrResp;
+import com.holdingkey.ocr.dto.OcrResponse;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.JSONObject;
@@ -35,18 +35,18 @@ public class AipPlatform implements IPlatform {
         return this.client;
     }
 
-    public OcrResp basicAccurateGeneral(byte[] img) {
+    public OcrResponse basicAccurateGeneral(byte[] img) {
         JSONObject resultJson = this.getClient().basicAccurateGeneral(img, new HashMap<>());
-        OcrResp ocrResp = JSONUtil.toBean(resultJson.toString(), OcrResp.class);
+        OcrResponse ocrResponse = JSONUtil.toBean(resultJson.toString(), OcrResponse.class);
         LOGGER.info("[通用高精度文字识别] <文件二进制> <请求成功> <返回数据: {}>", resultJson);
-        return ocrResp;
+        return ocrResponse;
     }
 
-    public OcrResp basicAccurateGeneral(String imgPath) {
+    public OcrResponse basicAccurateGeneral(String imgPath) {
         JSONObject resultJson = this.getClient().basicAccurateGeneral(imgPath, new HashMap<>());
-        OcrResp ocrResp = JSONUtil.toBean(resultJson.toString(), OcrResp.class);
+        OcrResponse ocrResponse = JSONUtil.toBean(resultJson.toString(), OcrResponse.class);
         LOGGER.info("[通用高精度文字识别] <文件路径> <请求成功> <返回数据: {}>", resultJson);
-        return ocrResp;
+        return ocrResponse;
     }
 
 }

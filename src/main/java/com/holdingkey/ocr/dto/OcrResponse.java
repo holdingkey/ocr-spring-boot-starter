@@ -5,9 +5,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class OcrResp {
+public class OcrResponse {
 
-    private List<WordsResp> wordsResult;
+    private List<WordsResponse> wordsResult;
 
     private String logId;
 

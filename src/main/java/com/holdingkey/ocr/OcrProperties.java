@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -12,7 +13,7 @@ import java.util.List;
 @ConfigurationProperties(prefix = "spring.ocr")
 public class OcrProperties {
 
-    private List<AipConfig> aip;
+    private List<AipConfig> aip = new ArrayList<>();
 
     @Data
     @Accessors(chain = true)
